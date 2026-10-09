@@ -1,0 +1,44 @@
+/* 1.background-image, 2.font-style, 3.padding-top */
+body {
+    background-image: url(Sky.jpg);
+    font-style: italic;
+    padding-top: 25px;
+    font-size: 200%;
+}
+
+h1 {
+    color: cyan;
+    padding: 15px;
+    background: silver;
+    width: fit-content;
+    font-family: cursive;
+    font-size: 300%;
+}
+
+/* 4.text-align, 5.border-radius, 6.border-top-color */
+p.first {
+    text-align: center;
+    border-radius: 20px 50px;
+    border-top-style: solid;
+    border-top-color: red;
+}
+
+font.bold {
+    font-weight: bold;
+}
+
+/* 7.font-size */
+font.big {
+    font-size: 40px;
+}
+
+/* 8.text-align-last */
+p.second {
+    text-align-last: right;
+}
+
+/* 9.text-justify, 10.font-variant */
+p.third {
+    font-variant: inherit;
+    text-justify: auto;
+}
