@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="Golden.jpg" type="image/jpeg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="DCS2601011_ChanJiaWei.css">
+</head>
+<body>
+
+<div class="container">
+<div class="login-box">
+ <h1>Welcome</h1>
+ <p>Please log in to access your student account.</p>
+ <ul>
+ <li>Receive the latest announcements</li>
+ <li>Access learning materials</li>
+ <li>View your timetabe and result</li>
+ <li>Submit your assignments & projects</li>
+ </ul>
+</div>
+
+<div class="login-box">
+
+    <h2 id="boxTitle">Login Page</h2>
+
+    <form id="loginForm">
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter Username">
+    <p class="error" id="usernameError"></p>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter Password">
+    <p class="error" id="passwordError"></p>
+
+    <label class="show">
+    <input type="checkbox" id="showPassword"> Show password
+    </label>
+
+    <input type="submit" value="Login">
+
+    <p class="forgot"><a href="#" id="forgotLink">Forgot password?</a></p>
+
+    <p id="message"></p>
+
+    </form>
+
+
+    <form id="forgotForm" class="hidden" novalidate>
+
+    <p class="info-text">Enter your email and you will receive a reset link.</p>
+
+    <label for="forgotEmail">Email:</label>
+    <input type="email" id="forgotEmail" placeholder="Enter your email">
+    <p class="error" id="emailError"></p>
+
+    <input type="submit" value="Send Reset Link">
+
+    <p class="forgot"><a href="#" id="backLink">Back to Login</a></p>
+
+    <p id="forgotMessage"></p>
+
+</form>
+
+<div class="contact">
+ <h3><a href="mailto:marketing@crescendo.edu.my">Contact Us</a></h3>
+ <p>Email: CollegeSupport@center.edu.my</p>
+ <p>Phone: +60 11-666 1100</p>
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
