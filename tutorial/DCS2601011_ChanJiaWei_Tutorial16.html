@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form - Text Input</title>
+<link rel=icon href=sunflower.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 20px;
+    color: #000;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.section-box {
+    border: 1px solid #000;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+td {
+    padding: 8px 5px;
+    vertical-align: middle;
+}
+
+.label-col {
+    text-align: right;
+    font-weight: bold;
+    width: 120px;
+}
+
+.spacer-col {
+    width: 40px;
+}
+
+.input-col {
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 90%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.question-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.red-text {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: vertical;
+}
+
+input[type="submit"], input[type="reset"] {
+    padding: 6px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+</style>
+<script>
+function validateForm() {
+    if (document.MyFirstForm.SID.value == "") {
+        alert("Please provide your Student ID!");
+        return false;
+    }
+    if (document.MyFirstForm.Sname.value == "") {
+        alert("Please provide your Student Name!");
+        return false;
+    }
+    if (document.MyFirstForm.EAdd.value == "") {
+        alert("Please provide your Email address!");
+        return false;
+    } else if (document.MyFirstForm.EAdd.value.indexOf("@") == -1) {
+        alert("Please enter a valid Email address!");
+        return false;
+    }
+    if (document.MyFirstForm.ICNo.value == "") {
+        alert("Please provide your IC No.!");
+        return false;
+    }
+    if (document.MyFirstForm.course.value == "0") {
+        alert("Please select a Course!");
+        return false;
+    }
+    if (document.MyFirstForm.dob.value == "") {
+        alert("Please select your Date of Birth!");
+        return false;
+    }
+
+    if (!document.MyFirstForm.q1[0].checked && !document.MyFirstForm.q1[1].checked) {
+        alert("Please answer Question 1.");
+        return false;
+    }
+    if (!document.MyFirstForm.q2[0].checked && !document.MyFirstForm.q2[1].checked) {
+        alert("Please answer Question 2.");
+        return false;
+    }
+
+    let skills = document.MyFirstForm.q3;
+    let atLeastOneChecked = false;
+    for (let i = 0; i < skills.length; i++) {
+        if (skills[i].checked) {
+            atLeastOneChecked = true;
+            break;
+        }
+    }
+    if (!atLeastOneChecked) {
+        alert("Please select at least one option for Question 3.");
+        return false;
+    }
+
+    if (document.MyFirstForm.q4.value.trim() == "") {
+        alert("Please fill in your Wish items / suggestions.");
+        return false;
+    }
+
+    return true; 
+}
+</script>
+</head>
+
+<body topmargin=50>
+
+<div class="form-container">
+<h2>DCS3003 Website Design Course Survey</h2>
+
+<form name=MyFirstForm onsubmit="return validateForm()">
+
+<div class="section-box">
+<div class="title">Personal detail</div>
+<table>
+ <tr>
+  <td class="label-col">Student ID :</td>
+  <td class="input-col"><input type="text" name="SID"></td>
+  <td class="spacer-col"></td>
+  <td class="label-col">Student Name :</td>
+  <td class="input-col"><input type="text" name="Sname"></td>
+ </tr>
+ <tr>
+  <td class="label-col">Email address :</td>
+  <td class="input-col"><input type="email" name="EAdd"></td>
+  <td class="spacer-col"></td>
+  <td class="label-col">IC No. :</td>
+  <td class="input-col"><input type="text" name="ICNo"></td>
+ </tr>
+ <tr>
+  <td class="label-col">Course :</td>
+  <td class="input-col">
+  <select name="course">
+   <option value="0">- List of Courses -</option>
+   <option value="DCS">Diploma In Computer Science</option>
+   <option value="DIB">Diploma In Bussiness</option>
+   <option value="DAS">Diploma In Airline Services</option>
+   <option value="UOL">University Of London</option>
+   <option value="DCA">Diploma In Culinary Arts</options>
+  </select>
+  </td>
+  <td class="spacer-col"></td>
+  <td class="label-col">D.O.B :</td>
+  <td class="input-col"><input type="date" name="dob"></td>
+ </tr>
+</table>
+</div>
+
+<div class="section-box">
+<div class="title">Questions</div>
+<div class="red-text">Please answer all questions</div>
+
+<table>
+
+ <tr>
+  <td class="question-text">1) Have you grasped the content of the Website Design so far?</td>
+ <td>
+<div class="radio-group">
+<label><input type="radio" name="q1" value="Yes"> YES</label>
+<label><input type="radio" name="q1" value="No"> NO</label>
+</div>
+ </td>
+ </tr>
+
+ <tr>
+  <td class="question-text">2) Can you now create a simple but interactive website?</td>
+  <td>
+<div class="radio-group">
+<label><input type="radio" name="q2" value="Yes"> YES</label>
+<label><input type="radio" name="q2" value="No"> NO</label>
+</div>
+  </td>
+ </tr>
+
+               
+ <tr>
+  <td class="question-text">3) What have you learned so far?</td>
+  <td>
+ <div class="checkbox-group">
+ <label><input type="checkbox" name="q3" value="Knowledge"> Knowledge</label>
+ <label><input type="checkbox" name="q3" value="Practical Skills"> Practical Skills</label>
+ <label><input type="checkbox" name="q3" value="Problem Solving"> Problem Solving</label>
+ <label><input type="checkbox" name="q3" value="Self-Exploration Skills"> Self-Exploration Skills</label>
+</div>
+  </td>
+  </tr>
+
+  <tr>
+  <td colspan="2" class="question-text">4) Wish items / suggestions <span style="color:red;">*</span>
+  <textarea name="q4" rows="4"></textarea>
+  </td>
+  </tr>
+
+</table>
+</div>
+ 
+<center>
+  <input type="reset" value=Reset>
+  <input type="submit" value=Submit>
+</center>
+</form>
+</body>
+</html>

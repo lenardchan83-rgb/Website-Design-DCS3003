@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Results Calculator</title>
+<link rel="icon" href="sunflower.jpg" type="image/jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 600px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 6px 10px;
+  }
+  th:first-child,
+  td:first-child {
+    width: 55%;
+    white-space: nowrap;
+  }
+  .pass { color: green; font-weight: bold; }
+  .fail { color: red;   font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2><b>Results Calculator</b></h2>
+<h4 align="left">Enter your marks for each type</h4>
+<table border=1 cellspacing=1>
+<tr>
+<th align="left">Type</th>
+<th align="left">Weight</th>
+<th align="left">Marks</th>
+</tr>
+
+<tr>
+<td align="left">Assessment 1</td>
+<td align="left">50%</td>
+<td><input type="number" id="num" min="0" max="50"></td>
+</tr>
+
+<tr>
+<td align="left">Assessment 2</td>
+<td align="left">50%</td>
+<td><input type="number" id="num2" min="0" max="50"></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">Total Marks</td>
+<td id="total"></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">Pass : Fail</td>
+<td id="result"></td>
+</tr>
+</table>
+
+<button onclick="calculate()">Calculate</button>
+
+<script>
+function calculate() {
+  const a1 = parseFloat(document.getElementById('num').value) || 0;
+  const a2 = parseFloat(document.getElementById('num2').value) || 0;
+
+  const total = a1 + a2;
+  document.getElementById('total').textContent = total.toFixed(2) + '%';
+
+  const resultCell = document.getElementById('result');
+  const passed = total >= 50;
+  resultCell.textContent = passed ? 'Pass' : 'Fail';
+  resultCell.className = passed ? 'pass' : 'fail';
+}
+</script>
+</body>
+</html>

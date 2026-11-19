@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login Page</h2>
+
+<form>
+
+<label for="username">Username:</label><br>   
+<input type="text" id="username" name="username"><br><br>
+<label for="password">Password:</label><br>      
+<input type="password" id="password" name="password"><br><br>       
+<input type="submit" value="Login">
+
+</form>
+
+<p>
+<label for="usernameColor">Username text color:</label>
+<input type="color" id="usernameColor" value="#000000">
+<label for="passwordColor">Password text color:</label>
+<input type="color" id="passwordColor" value="#000000">
+</p>
+
+<script>
+let d = new Date();
+
+window.alert("Welcome, please login with username and correct password");
+
+function changeColor(elementId, newColor) {
+    const tochange = document.getElementById(elementId);
+    if (tochange) {
+        tochange.style.color = newColor;
+    }
+}
+
+document.getElementById("usernameColor").addEventListener("input", function () {
+    changeColor("username", this.value);
+});
+
+document.getElementById("passwordColor").addEventListener("input", function () {
+    changeColor("password", this.value);
+});
+</script>
+
+</body>
+</html>
