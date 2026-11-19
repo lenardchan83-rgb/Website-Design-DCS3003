@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SprintZone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Sports.jpg" type="image/jpeg">
+</head>
+<body data-page="home">
+
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="SprintZone home"><span class="logo-mark">S</span>SPRINT<em>ZONE</em></a>
+      <nav id="main-nav" class="links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="deals.html">Deals</a>
+      </nav>
+      <a href="cart.html" class="cart" aria-label="Shopping cart">🛒<span id="cart-badge">0</span></a>
+      <button class="menu-btn" id="nav-toggle" type="button" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-home">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">New season · 2026 collection</span>
+          <h1>Gear up. <span>Play harder.</span></h1>
+          <p class="lead">Sports gear picked by athletes, priced for everyone. Free shipping on orders over RM 300.</p>
+          <div class="hero-actions">
+            <a class="btn" href="shop.html">Shop now →</a>
+            <a class="btn btn-ghost" href="about.html">Our story</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>12+</strong><span>Pro-grade products</span></div>
+            <div><strong>5</strong><span>Sport categories</span></div>
+            <div><strong>14 days</strong><span>Easy returns</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" id="hero-visual" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><h2>Shop by sport</h2><p>Pick your game and we'll show you the gear that goes with it.</p></div>
+          <a class="link-arrow" href="shop.html">View all products</a>
+        </div>
+        <div class="cats" id="category-grid" data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><h2>Trending now</h2><p>The pieces our customers keep coming back for.</p></div>
+          <a class="link-arrow" href="shop.html">See more</a>
+        </div>
+        <div class="products" id="featured-grid" data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <h2 data-reveal>Why SprintZone?</h2>
+        <div class="features" data-reveal>
+          <div class="feature"><div class="ico">🚚</div><h3>Fast delivery</h3><p>Most orders ship within 24 hours and arrive in 2–4 working days.</p></div>
+          <div class="feature"><div class="ico">✅</div><h3>Authentic gear</h3><p>Every product is brand-new, genuine and quality checked.</p></div>
+          <div class="feature"><div class="ico">↩️</div><h3>Easy returns</h3><p>Wrong size? Return it within 14 days, no questions asked.</p></div>
+          <div class="feature"><div class="ico">💬</div><h3>Real support</h3><p>Talk to a team that actually plays the sports we sell.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="banner" data-reveal>
+          <div>
+            <h2>Take 10% off your first order</h2>
+            <p>Add your favourite gear to the cart and enter the code below at checkout.</p>
+            <p><span class="code">SPORT10</span></p>
+            <a class="btn btn-dark" href="deals.html">See all deals</a>
+          </div>
+          <div class="big-emoji" aria-hidden="true">🏆</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <section class="newsletter">
+    <div class="container newsletter-inner">
+      <h2>Get deals before everyone else</h2>
+      <form class="newsletter-form" novalidate>
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" placeholder="123@gmail.com">
+        <button class="btn btn-dark" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo-mark">S</span>SPRINT<em>ZONE</em></a>
+          <p class="footer-about">Sports gear for every game. Built by athletes, priced for everyone.</p>
+        </div>
+        <div><h3>SHOP</h3><ul>
+          <li><a href="shop.html?cat=football">Football</a></li>
+          <li><a href="shop.html?cat=racket">Racket Sports</a></li>
+          <li><a href="shop.html?cat=basketball">Basketball</a></li>
+          <li><a href="shop.html?cat=running">Running</a></li>
+        </ul></div>
+        <div><h3>COMPANY</h3><ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="deals.html">Hot deals</a></li>
+        </ul></div>
+        <div><h3>HELP</h3><ul>
+          <li><a href="cart.html">My cart</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Returns</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> SprintZone. Student project – not a real store.</span><span>Made with HTML, CSS &amp; JavaScript</span></div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
