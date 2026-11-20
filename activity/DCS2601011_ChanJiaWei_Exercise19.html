@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Exercise 19</title>
+
+<link rel=icon href=sunglasses.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+</head>
+<body topmargin="50">
+<style>
+    .fname{
+        background-color: darkblue;
+        color: azure;
+    }
+    .lname{
+        background-color: darkblue;
+        color: azure;
+    }
+    .gender{
+        background-color: darkblue;
+        color: azure;
+    }
+    .fav_sub{
+        background-color: darkblue;
+        color: azure;
+    }
+    .address{
+        background-color: darkblue;
+        color: azure;
+    }
+    .dob{
+        background-color: darkblue;
+        color: azure;
+    }
+    .loginpass{
+        background-color: darkblue;
+        color: azure;
+    }
+    .course{
+        background-color: darkblue;
+        color: azure;
+    }
+</style>
+<form>
+<center>
+<table>
+<tr>
+  <td class="course"><label for="course">Course:</label></td>
+  <td>
+   <select id="course" name="course" onchange="updateSubjects()">
+   <option value="0">- List of Courses -</option>
+  <option value="DIB">Diploma in Business</option>
+  <option value="DCS">Diploma in Computer Science</option>
+  <option value="DAS">Diploma in Airline Services</option>
+ </select>
+ </td>
+</tr>
+<br>
+<tr>
+  <td class="fav_sub">Subjects:</td>
+  <td id="subjectCell">
+  <!-- default: computer science subjects -->
+  <label><input type="checkbox" name="fav_sub" value="DCS4103"> DCS4103</label>
+  <label><input type="checkbox" name="fav_sub" value="DCS3003"> DCS3003</label>
+  <label><input type="checkbox" name="fav_sub" value="MST1003"> MST1003</label>
+  <label><input type="checkbox" name="fav_sub" value="MST2003"> MST2003</label>
+  </td>
+</tr>
+</table>
+<br><br>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+</center>
+</form>
+
+<script>
+var subjectsByCourse = {
+  "DIB":    ["MPU2333", "DIC2003", "DIB2333", "ECO1401", "LAW1501"],
+  "DCS":    ["MPU2333", "DCS3003", "MST1003", "MST2003"],
+  "DAS":    ["AVS2101", "AVS2201", "AVS2301", "CAB2401", "SAF2501"]
+};
+
+ function updateSubjects() {
+  var course = document.getElementById("course").value;
+  var subjects = subjectsByCourse[course] || subjectsByCourse["0"];
+  var html = "";
+  for (var i = 0; i < subjects.length; i++) {
+     html += '<label><input type="checkbox" name="fav_sub" value="'
+        + subjects[i] + '"> ' + subjects[i] + '</label>\n';
+  }
+  document.getElementById("subjectCell").innerHTML = html;
+}
+</script>
+</body>
+</html>
