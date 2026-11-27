@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tutorial 20</title>
+<link rel=icon href=sunglasses.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+</head>
+<body topmargin="50">
+<center>
+<h2>Online Banking Home Page</h2>   
+<form>
+<label for="username">Username:</label>
+<input type="text" id="username" disabled>
+<br><br>
+<input type="submit" value="submit" id="submit" disabled>
+</form>
+</center>
+<script>
+window.onload = function() {
+alert("Customers will receive SMS when there transactions are performed through their bank accounts.");
+document.getElementById("username").disabled = false;
+document.getElementById("submit").disabled = false;
+};
+</script>
+</body>
+</html>

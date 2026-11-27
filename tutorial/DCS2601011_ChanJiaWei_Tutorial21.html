@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel=icon href=sunglasses.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+<title>Tutorial 21</title>
+    <style>
+        body {
+            background-color: lightcyan;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            background: white;
+            width: 600px;
+            max-width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .search-container, .form-group {
+            margin-bottom: 15px;
+        }
+
+        .search-container input, .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container button {
+            padding: 8px 15px;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 0.85em;
+            display: none;
+        }
+
+        #success-message {
+            display: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <header>
+            <h1>City Public Library</h1>
+            <p>Your gateway to knowledge and community</p>
+        </header>
+
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#search">Search Books</a>
+            <a href="#membership">Join Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="card" id="about">
+            <h2>About Our Library</h2>
+            <p>Established in 1950, the City Public Library has been a cornerstone of our community. We offer a vast collection of books, digital media, and a quiet space for learning and research.</p>
+            
+            <h3 id="facilities">Our Facilities</h3>
+            <ul>
+                <li>High-speed Wi-Fi and computer stations</li>
+                <li>Dedicated quiet study zones</li>
+                <li>Children's reading corner</li>
+                <li>Multimedia viewing rooms</li>
+            </ul>
+        </div>
+
+        <div class="card" id="search" style="margin-top: 20px;">
+            <h2>Search the Catalog</h2>
+            <p>Find your next read by searching for a book title or author.</p>
+            <div class="search-container">
+                <input type="text" id="catalog-search" placeholder="Enter book title or author...">
+                <button onclick="searchBooks()">Search</button>
+            </div>
+        </div>
+
+        <div class="card" id="membership" style="margin-top: 20px;">
+            <h2>Become a Member</h2>
+            <p>Register today to borrow books and access digital resources.</p>
+            
+            <form id="regForm" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="text" id="email" placeholder="example@email.com">
+                    <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number:</label>
+                    <input type="text" id="phone" placeholder="e.g., 0123456789">
+                    <span class="error-msg" id="phoneError">Please enter a valid phone number (10-12 digits).</span>
+                </div>
+
+                <button type="submit" style="padding: 10px 20px; cursor: pointer;">Register Now</button>
+            </form>
+
+            <div id="success-message">Registration Successful! Welcome to the library.</div>
+        </div>
+
+        <div class="card" id="contact" style="margin-top: 20px;">
+            <h2><a href="mailto:marketing@crescendo.edu.my">Contact Us</a></h2>
+            <p><strong>Address:</strong> 123 Main Street, Cityville</p>
+            <p><strong>Phone:</strong> +60 11-5555 5544</p>
+            <p><strong>Email:</strong> ABC123@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        function searchBooks() {
+            let query = document.getElementById('catalog-search').value;
+            if (query.trim() === "") {
+                alert("Please enter a title or author to search.");
+            } else {
+                alert("Searching catalog for: " + query + "\n(This is a demo, no actual database connected)");
+            }
+        }
+
+        function validateForm(event) {
+            event.preventDefault(); 
+
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const successMessage = document.getElementById('success-message');
+
+            let isValid = true;
+            successMessage.style.display = "none";
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+            
+            if (emailInput.value.trim() === "") {
+                emailError.textContent = "Email address is required.";
+                emailError.style.display = "block";
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                emailError.textContent = "Please enter a valid email format (e.g., user@domain.com).";
+                emailError.style.display = "block";
+                isValid = false;
+            } else {
+                emailError.style.display = "none"; 
+            }
+
+            const cleanPhone = phoneInput.value.replace(/[\s\-]/g, ''); 
+
+            if (phoneInput.value.trim() === "") {
+                phoneError.textContent = "Contact number is required.";
+                phoneError.style.display = "block";
+                isValid = false;
+            } else if (!/^\d+$/.test(cleanPhone) || cleanPhone.length < 10 || cleanPhone.length > 12) {
+                phoneError.textContent = "Please enter a valid number (10-12 digits only).";
+                phoneError.style.display = "block";
+                isValid = false;
+            } else {
+                phoneError.style.display = "none"; 
+            }
+
+            if (isValid) {
+                successMessage.style.display = "block";
+                document.getElementById('regForm').reset();
+            }
+
+            return false; 
+        }
+    </script>
+</body>
+</html>
